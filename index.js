@@ -16,7 +16,14 @@ function preload() {
 function setup() {
   let myCanvas = createCanvas(640, 480);
   myCanvas.parent("myContainer");
-  video = createCapture(VIDEO);
+  // create a constraints object
+  const constraints = {
+    audio: false,
+    video: {
+      facingMode: "environment",
+    },
+  };
+  video = createCapture(constraints);
   video.size(320, 240); // WHY DOES THIS LINE MATTER?
   video.hide();
 
